@@ -37,6 +37,11 @@ class CarService implements IService<ICar> {
     }
     return this._car.update(_id, obj);
   }
+
+  public async delete(_id:string):Promise<ICar | null> {
+    await this.readOne(_id);
+    return this._car.delete(_id);
+  }
 }
 
 export default CarService;
